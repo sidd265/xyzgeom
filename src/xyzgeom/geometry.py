@@ -41,7 +41,8 @@ def _masses(mol: Molecule) -> np.ndarray:
 def center_of_mass(mol: Molecule) -> np.ndarray:
     """Mass-weighted average position of all atoms."""
     masses = _masses(mol)
-    return (masses[:, None] * mol.coords).sum(axis=0) / masses.sum()
+    com: np.ndarray = (masses[:, None] * mol.coords).sum(axis=0) / masses.sum()
+    return com
 
 
 def radius_of_gyration(mol: Molecule) -> float:
