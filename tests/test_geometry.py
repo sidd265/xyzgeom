@@ -37,9 +37,7 @@ def test_methane_tetrahedral_angle(methane):
 def test_water_center_of_mass_closer_to_oxygen(water):
     com = center_of_mass(water)
     # Oxygen (17x heavier than H) should dominate; COM stays near atom 0.
-    assert np.linalg.norm(com - water.coords[0]) < np.linalg.norm(
-        com - water.coords[1]
-    )
+    assert np.linalg.norm(com - water.coords[0]) < np.linalg.norm(com - water.coords[1])
 
 
 def test_methane_center_of_mass_near_carbon(methane):
