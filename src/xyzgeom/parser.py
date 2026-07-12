@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
+import numpy.typing as npt
 
 
 @dataclass
@@ -13,7 +14,7 @@ class Molecule:
     """Atom symbols and their 3D coordinates (Angstroms)."""
 
     symbols: list[str]
-    coords: np.ndarray  # shape (n_atoms, 3)
+    coords: npt.NDArray[np.float64]  # shape (n_atoms, 3)
 
 
 def parse_xyz(path: str | Path) -> Molecule:

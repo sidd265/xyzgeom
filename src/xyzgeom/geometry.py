@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import numpy as np
+import numpy.typing as npt
 
 from xyzgeom.parser import Molecule
 
@@ -31,17 +32,19 @@ def angle(mol: Molecule, i: int, j: int, k: int) -> float:
     return float(np.degrees(np.arccos(cos_theta)))
 
 
-def _masses(mol: Molecule) -> np.ndarray:
+def _masses(mol: Molecule) -> npt.NDArray[np.float64]:
     try:
         return np.array([ATOMIC_MASSES[s] for s in mol.symbols])
     except KeyError as exc:
         raise ValueError(f"no atomic mass known for element {exc}") from exc
 
 
-def center_of_mass(mol: Molecule) -> np.ndarray:
+def center_of_mass(mol: Molecule) -> npt.NDArray[np.float64]:
     """Mass-weighted average position of all atoms."""
     masses = _masses(mol)
-    com: np.ndarray = (masses[:, None] * mol.coords).sum(axis=0) / masses.sum()
+    com: npt.NDArray[np.float64] = (masses[:, None] * mol.coords).sum(
+        axis=0
+    ) / masses.sum()
     return com
 
 
