@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an addition to xyzgeom
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Note: xyzgeom is intentionally scoped to basic .xyz geometry (distance, angle, center of mass, radius of gyration). Requests for trajectory support, plotting, or config systems are likely out of scope.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true

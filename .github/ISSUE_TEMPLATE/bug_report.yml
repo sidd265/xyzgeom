@@ -1,0 +1,36 @@
+name: Bug report
+description: Report incorrect output or a crash in xyzgeom
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the incorrect behavior, including what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: xyz-input
+    attributes:
+      label: Minimal .xyz file that reproduces the issue
+      description: Paste the smallest .xyz input that triggers the bug.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command run and output received
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: xyzgeom version and Python version
+      placeholder: "xyzgeom 0.1.0, Python 3.11"
+    validations:
+      required: true
